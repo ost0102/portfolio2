@@ -400,6 +400,7 @@ ul, ol, nav {
       -ms-flex-pack: center;
           justify-content: center;
   font-size: 24px;
+  text-align: center;
 }
 .wrap header .header__inner nav.header-nav {
   display: -webkit-box;
