@@ -8,7 +8,7 @@ body{
     width: 100%;
     position: relative;
     overflow: hidden;
-    scroll-behavior: smooth;
+    // scroll-behavior: smooth;
 }
 
 img, picture, video, canvas, svg {display: block;max-width:100%;}
@@ -32,4 +32,20 @@ ul,ol,nav{list-style:none;}
     height: 100vh;
     overflow: hidden;
 }
-
+.wrap.dark-mode *,
+.wrap.light-mode *{
+    transition: all .5s ease;
+}
+.wrap video {
+    transition: none !important; /* 모든 트랜지션 비활성화 */
+}
+.wrap.dark-mode,
+.wrap.dark-mode .main .s1-title .title span video,
+.wrap.dark-mode .main .s2 img,
+.wrap.dark-mode .main .s4 .sticky .project__list li a img,
+.wrap.dark-mode .main .s5 img{
+    filter: invert(1);
+}
+.wrap.dark-mode .wrap .main .s4 .sticky .project__list li:nth-child(6) a img{
+    filter: invert(0);
+}

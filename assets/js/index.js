@@ -332,7 +332,6 @@ let videoTl = gsap.timeline({
                         introContainer.remove();
                         window.scrollTo({
                             top: 0,
-                            behavior: "smooth" // 부드러운 스크롤 효과
                         });
                     }
                     const wrap = document.querySelector('.wrap');
@@ -382,15 +381,11 @@ document.querySelector(".skip").addEventListener("click", () => {
                 introContainer.remove();
                 window.scrollTo({
                     top: 0,
-                    behavior: "smooth" // 부드러운 스크롤 효과
                 });
             }
             const wrap = document.querySelector('.wrap');
             wrap.style.position = 'relative'; // 고정 제거
-            wrap.style.height = 'auto';       // 콘텐츠에 맞게 높이 변경
             wrap.style.opacity = 1;
-            document.body.style.height = 'auto';
-            document.documentElement.style.height = 'auto';
             setTimeout(() => {
                 ScrollTrigger.refresh();
             }, 1000)
@@ -490,7 +485,49 @@ document.addEventListener("DOMContentLoaded", function () {
     topBtn.addEventListener("click", function () {
         window.scrollTo({
             top: 0,
-            behavior: "smooth" // 부드러운 스크롤 효과
         });
     });
+});
+
+const toggleButton = document.querySelector(".toggle");
+const body = document.querySelector(".wrap");
+
+toggleButton.addEventListener("click", () => {
+    if (body.classList.contains("dark-mode")) {
+        body.classList.replace("dark-mode", "light-mode");
+        document.querySelector(".sun").style.opacity = 1;
+        document.querySelector(".sun").style.visibility = 'inherit';
+        gsap.to('.toggle__inner',{
+            x: 0, // 오른쪽으로 이동
+            rotate: 0, // 한 바퀴 회전
+            ease: "power2.inOut"
+        })
+        gsap.to('.moon',{
+            opacity: 0,
+            ease: "power2.inOut"
+        })
+        gsap.to('.sun',{
+            opacity: 1,
+            ease: "power2.inOut",
+        })
+    } else {
+        body.classList.replace("light-mode", "dark-mode");
+        document.querySelector(".sun").style.opacity = 0;
+        document.querySelector(".sun").style.visibility = 'none';
+        document.querySelector(".moon").style.opacity = 1;
+        document.querySelector(".moon").style.visibility = 'inherit';
+        gsap.to('.toggle__inner',{
+            x: "100%", // 오른쪽으로 이동
+            rotate: 360, // 한 바퀴 회전
+            ease: "power2.inOut"
+        })
+        gsap.to('.sun',{
+            opacity: 0,
+            ease: "power2.inOut"
+        })
+        gsap.to('.moon',{
+            opacity: 1,
+            ease: "power2.inOut"
+        })
+    }
 });

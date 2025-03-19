@@ -1,0 +1,90 @@
+header{
+    position: sticky;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 30px 20px;
+    margin-bottom: 5px;
+    backdrop-filter: blur(12px);
+    z-index: 99;
+    .header__inner{
+        display: flex;
+        align-items: center;
+        justify-content:space-between;
+        .header-logo{
+            .header-icon{
+                svg{
+
+                }
+            }
+        }
+        .header-title{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            h1{
+                font-family: 'Kanit';
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+                text-align: center;
+                p{
+
+                }
+            }
+        }
+        nav.header-nav{
+            display: flex;
+            align-items: center;
+            ul.menu{
+                display: flex;
+                align-items: center;
+                font-size: 18px;
+                font-weight: 500;
+                li{
+                    a{
+                        margin-right: 20px;
+                    }
+                }
+            }    
+            .toggle{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                width: 60px;
+                height: 31px;
+                border-radius: 72px;
+                background: #000;
+                &__inner{
+                    display: flex;
+                    align-items: center;
+                    position: absolute;
+                    width: 27px;
+                    height: 27px;
+                    border-radius: 100%;
+                    background: #fff;
+                    will-change: transform;
+                    left: 3px;
+                    svg{
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        z-index: 1;
+                    }
+                    .sun{
+
+                    }
+                    .moon{
+                        left: unset;
+                        right: 0px;
+                        filter: invert(1);
+                    }
+                }
+            }
+        }
+    }
+}
