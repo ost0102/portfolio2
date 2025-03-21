@@ -2,15 +2,15 @@
 *, :after, :before {box-sizing:border-box;}
 :root {-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;text-size-adjust:100%;cursor:default;line-height:1.5;overflow-wrap:break-word;-moz-tab-size:4;tab-size:4}
 html, body {height:100%;}
+html{overflow: hidden;}
 body{
     font-family: 'Kanit';
     min-width: 1340px;
     width: 100%;
     position: relative;
-    overflow: hidden;
-    // scroll-behavior: smooth;
+    background: #000;
 }
-
+html.fp-enabled, .fp-enabled body{overflow: auto !important;}
 img, picture, video, canvas, svg {display: block;max-width:100%;}
 button {background:none;border:0;cursor:pointer;}
 a {text-decoration:none; display: block;}
@@ -32,20 +32,29 @@ ul,ol,nav{list-style:none;}
     height: 100vh;
     overflow: hidden;
 }
-.wrap.dark-mode *,
-.wrap.light-mode *{
-    transition: all .5s ease;
-}
-.wrap video {
-    transition: none !important; /* 모든 트랜지션 비활성화 */
-}
-.wrap.dark-mode,
-.wrap.dark-mode .main .s1-title .title span video,
-.wrap.dark-mode .main .s2 img,
-.wrap.dark-mode .main .s4 .sticky .project__list li a img,
-.wrap.dark-mode .main .s5 img{
-    filter: invert(1);
-}
-.wrap.dark-mode .wrap .main .s4 .sticky .project__list li:nth-child(6) a img{
-    filter: invert(0);
-}
+
+.__cursor {
+    position: fixed;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    width: 50px;
+    height: 50px;
+    transition: width .3s ease, height .3s ease;
+    background-color: #fff;
+    border-radius: 50%;
+    mix-blend-mode: difference;
+  }
+  .__cursor div{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+  }
+  .__cursor.hover{
+    width: 70px;
+    height: 70px;
+  }

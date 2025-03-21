@@ -38,7 +38,7 @@ document.querySelector(".intro-label.label2").addEventListener("click", () => {
         duration: 0.5, 
         ease: "power2.out", 
         onComplete: () => {
-            document.querySelector("body").style.overflow = "auto"
+            document.documentElement.style.overflow = 'auto';
             document.querySelector(".intro-wrap").style.display = "none"; 
             setTimeout(() => {
                 document.querySelector(".intro-wrap").remove();
@@ -326,208 +326,81 @@ let videoTl = gsap.timeline({
                 duration: 1,
                 'z-index': -1,
                 onComplete: () => {
-                    // intro-container가 존재하는 경우에만 scrollTo 실행
+                    // intro-container 제거
                     const introContainer = document.querySelector('.intro-container');
-                    if (introContainer){
+                    if (introContainer) {
                         introContainer.remove();
                         window.scrollTo({
                             top: 0,
                         });
                     }
-                    const wrap = document.querySelector('.wrap');
-                    wrap.style.position = 'relative'; // 고정 제거
-                    wrap.style.height = 'auto';       // 콘텐츠에 맞게 높이 변경
-                    wrap.style.opacity = 1;
-                    document.body.style.height = 'auto';
-                    document.documentElement.style.height = 'auto';
+
+                    // main을 다시 보이게 설정
+                    const main = document.querySelector('main');
+                    main.style.position = 'relative';
+                    main.style.opacity = 1;
+
+                    // ScrollTrigger 새로고침 후 fullPage.js 실행
                     setTimeout(() => {
-                        ScrollTrigger.refresh();
-                    }, 1000)
-                    // if (introContainer) {
-                    //     window.scrollTo({
-                    //         top: 0,
-                    //         behavior: "smooth" // 부드러운 스크롤 효과
-                    //     });
-                    //     setTimeout(() => {
-                    //         // intro-container 제거 및 wrap 스타일 복원
-                    //         if (introContainer) introContainer.remove();
-                    //         const wrap = document.querySelector('.wrap');
-                    //         wrap.style.position = 'relative'; // 고정 제거
-                    //         wrap.style.height = 'auto';       // 콘텐츠에 맞게 높이 변경
-                    //         wrap.style.opacity = 1;
-                    //         document.body.style.overflowY = 'auto';
-                    //         ScrollTrigger.refresh();
-                    //         // activateMainAnimations();
-                    //     }, 1000);
-                    // }
-                    
-                    
+                        if (!$.fn.fullpage.isFullpage) { // fullPage.js가 초기화되지 않았다면 실행
+                            initFullPage(); // fullPage.js 실행
+                        }
+                    });
                 }
             });
         }
     }
 });
 
-document.querySelector(".skip").addEventListener("click", () => {
-    const intro = document.querySelector(".intro-container");
-
-    gsap.to(intro, {
-        opacity: 0,
-        duration: 1, 
-        ease: "power2.out", 
-        onComplete: () => {
-            const introContainer = document.querySelector('.intro-container');
-            if (introContainer){
-                introContainer.remove();
-                window.scrollTo({
-                    top: 0,
-                });
-            }
-            const wrap = document.querySelector('.wrap');
-            wrap.style.position = 'relative'; // 고정 제거
-            wrap.style.opacity = 1;
-            setTimeout(() => {
-                ScrollTrigger.refresh();
-            }, 1000)
-        }
-    });
-});
-
-
-    gsap.to(".s1", {
-        yPercent: -100, 
-        ease: "none",
-        scrollTrigger: {
-            trigger: ".s1",
-            start: "top top",
-            end: "bottom top",
-            scrub: 1, 
-        }
-    },'0');
-
-    gsap.to(".s3", {
-        yPercent: -100, 
-        ease: "none",
-        scrollTrigger: {
-            trigger: ".s3",
-            start: "0% 100%",
-            end: "bottom bottom",
-            scrub: 1, 
-        }
-    },'0');
-
-    gsap.to(".s4 .project__list", {
-        xPercent: -100,
-        ease: "none",
-        scrollTrigger: {
-            trigger: ".s4",
-            start: "top top",
-            end: "bottom bottom",
-            scrub: 1, 
-        },
-    });
-
-    gsap.to(".s4", {
-        yPercent: -30, 
-        ease: "none",
-        scrollTrigger: {
-            trigger: ".s5",
-            start: "top 30%",
-            end: "bottom top",
-            scrub: 1,
-        }
-    },'1');
-
-    gsap.to(".s6", {
-        yPercent: -100, 
-        ease: "none",
-        scrollTrigger: {
-            trigger: ".s6",
-            start: "0% 100%",
-            end: "bottom bottom",
-            scrub: 1, 
-        }
-    }),'1';
-
-document.addEventListener("DOMContentLoaded", function () {
-    const careerList = document.querySelector(".career__list");
-    if (!careerList) return;
-
-    // 리스트 내부의 모든 li 요소 가져오기
-    const items = Array.from(careerList.children);
-
-    // 리스트를 3배로 복제하여 무한 루프 구현
-    for (let i = 0; i < 2; i++) {  // 기존 리스트 + 2배 복제(총 3배)
-        items.forEach(item => {
-            const clone = item.cloneNode(true);
-            careerList.appendChild(clone);
+// fullPage.js 실행 함수
+function initFullPage() {
+    if (typeof $.fn.fullpage !== "undefined") {
+        $('.fullpage').fullpage({
+            autoScrolling: true,
+            scrollingSpeed: 1000
         });
-    }
-
-    // 각 li 요소들이 개별적으로 위로 이동하는 GSAP 애니메이션
-    gsap.to(".career__list", {
-        y: "-100%", // 개별 li가 위로 이동
-        duration: 20, // 속도 조절 (클수록 느림)
-        ease: "none",
-        repeat: -1, // 무한 반복
-        stagger: 1, // 요소별 시간 차이 적용 (자연스럽게 움직이도록)
-        modifiers: {
-            y: function (y) {
-                return (parseFloat(y) % 100) + "%"; // 부드러운 무한 루프 적용
-            }
-        }
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    const topBtn = document.querySelector(".top-btn");
-
-    topBtn.addEventListener("click", function () {
-        window.scrollTo({
-            top: 0,
-        });
-    });
-});
-
-const toggleButton = document.querySelector(".toggle");
-const body = document.querySelector(".wrap");
-
-toggleButton.addEventListener("click", () => {
-    if (body.classList.contains("dark-mode")) {
-        body.classList.replace("dark-mode", "light-mode");
-        document.querySelector(".sun").style.opacity = 1;
-        document.querySelector(".sun").style.visibility = 'inherit';
-        gsap.to('.toggle__inner',{
-            x: 0, // 오른쪽으로 이동
-            rotate: 0, // 한 바퀴 회전
-            ease: "power2.inOut"
-        })
-        gsap.to('.moon',{
-            opacity: 0,
-            ease: "power2.inOut"
-        })
-        gsap.to('.sun',{
-            opacity: 1,
-            ease: "power2.inOut",
-        })
+        $.fn.fullpage.isFullpage = true; // fullPage.js 초기화 상태 표시
     } else {
-        body.classList.replace("light-mode", "dark-mode");
-        document.querySelector(".sun").style.opacity = 0;
-        document.querySelector(".sun").style.visibility = 'none';
-        document.querySelector(".moon").style.opacity = 1;
-        document.querySelector(".moon").style.visibility = 'inherit';
-        gsap.to('.toggle__inner',{
-            x: "100%", // 오른쪽으로 이동
-            rotate: 360, // 한 바퀴 회전
-            ease: "power2.inOut"
-        })
-        gsap.to('.sun',{
-            opacity: 0,
-            ease: "power2.inOut"
-        })
-        gsap.to('.moon',{
-            opacity: 1,
-            ease: "power2.inOut"
-        })
+        console.error("fullPage.js가 로드되지 않았습니다.");
     }
+}
+
+document.querySelectorAll('.link').forEach(function(link) {
+    link.addEventListener('mouseenter', function() {
+        const showImg = this.closest('.section').querySelector('.show-behind');
+        if (showImg) {
+            showImg.classList.add('on');
+        }
+    });
+
+    link.addEventListener('mouseleave', function() {
+        const showImg = this.closest('.section').querySelector('.show-behind');
+        if (showImg) {
+            showImg.classList.remove('on');
+        }
+    });
+});
+
+document.querySelectorAll('.work-link').forEach(function(worklink) {
+    worklink.addEventListener('mouseenter', function() {
+        const showWrap = this.querySelector('.show-wrap');
+        if (showWrap) {
+            gsap.to(showWrap,{
+                opacity: 1,
+                'clip-path': 'inset(0% 0% 0% 0%)',
+                duration: .3
+            })
+        }
+    });
+
+    worklink.addEventListener('mouseleave', function() {
+        const showWrap = this.querySelector('.show-wrap');
+        if (showWrap) {
+            gsap.to(showWrap, {
+                opacity: 0,
+                'clip-path': 'inset(50% 0% 50% 0%)', // 기본 상태로 되돌리기
+                duration: .3
+            });
+        }
+    });
 });
