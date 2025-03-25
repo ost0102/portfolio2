@@ -342,7 +342,7 @@ let videoTl = gsap.timeline({
 
                     // ScrollTrigger 새로고침 후 fullPage.js 실행
                     setTimeout(() => {
-                        if (!$.fn.fullpage.isFullpage) { // fullPage.js가 초기화되지 않았다면 실행
+                        if (window.innerWidth > 768 && !$.fn.fullpage.isFullpage) { // 769px 이상일 때만 fullPage.js 실행
                             initFullPage(); // fullPage.js 실행
                         }
                     });
@@ -405,13 +405,3 @@ document.querySelectorAll('.work-link').forEach(function(worklink) {
     });
 });
 
-// gsap.to(".sticky", {
-//     opacity: 0,
-//     y: -100,
-//     scrollTrigger: {
-//         trigger: ".intro-container",
-//         start: "80% bottom",
-//         end: "100% bottom",
-//         scrub: true,
-//     }
-// });

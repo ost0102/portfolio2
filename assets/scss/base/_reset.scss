@@ -60,3 +60,20 @@ ul,ol,nav{list-style:none;}
     width: 70px;
     height: 70px;
   }
+
+.mo{
+  display: none !important;
+  position: relative;
+  z-index: 1;
+  @include mobile{
+    display: block !important;
+  }
+}
+.pc{
+  @include mobile{
+    display: none !important;
+  }
+}
+.fp-tableCell{
+  display: block !important;
+}

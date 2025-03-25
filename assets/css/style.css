@@ -125,6 +125,27 @@ ul, ol, nav {
   height: 70px;
 }
 
+.mo {
+  display: none !important;
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 768px) {
+  .mo {
+    display: block !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .pc {
+    display: none !important;
+  }
+}
+
+.fp-tableCell {
+  display: block !important;
+}
+
 @font-face {
   font-family: "NotoSans";
   src: url("../fonts/NotoSansKR-VariableFont_wght.ttf") format("truetype");
@@ -280,6 +301,7 @@ footer .right {
   transition: 0.5s all ease;
   position: relative;
   height: 600vh;
+  z-index: 2;
 }
 .intro-container .intro-wrap {
   position: fixed;
@@ -416,12 +438,12 @@ main {
   height: 100%;
   opacity: 0;
 }
-main .wrap > div {
+main .wrap .section.pc {
   position: relative;
   background: #000;
   height: 100vh;
 }
-main .wrap > div .cont {
+main .wrap .section.pc .cont {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -441,23 +463,23 @@ main .wrap > div .cont {
   position: relative;
   z-index: 2;
 }
-main .wrap > div .cont .project {
+main .wrap .section.pc .cont .project {
   text-align: center;
 }
-main .wrap > div .cont .project h2 {
+main .wrap .section.pc .cont .project h2 {
   margin-bottom: 20px;
 }
-main .wrap > div .cont .project a {
+main .wrap .section.pc .cont .project a {
   display: inline-block;
   font-weight: 100;
 }
-main .wrap > div .cont .project a:hover {
+main .wrap .section.pc .cont .project a:hover {
   font-weight: 900;
 }
-main .wrap > div .cont .tech {
+main .wrap .section.pc .cont .tech {
   text-align: right;
 }
-main .wrap > div .cont .project-list {
+main .wrap .section.pc .cont .project-list {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -466,10 +488,10 @@ main .wrap > div .cont .project-list {
   width: 100%;
   border-top: 1px #ededed solid;
 }
-main .wrap > div .cont .project-list li {
+main .wrap .section.pc .cont .project-list li {
   border-bottom: 1px #ededed solid;
 }
-main .wrap > div .cont .project-list li a.work-link {
+main .wrap .section.pc .cont .project-list li a.work-link {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -479,17 +501,17 @@ main .wrap > div .cont .project-list li a.work-link {
   position: relative;
   height: 70px;
 }
-main .wrap > div .cont .project-list li a.work-link > img {
+main .wrap .section.pc .cont .project-list li a.work-link > img {
   -webkit-filter: invert(1);
           filter: invert(1);
   width: 40px;
   margin-right: 40px;
 }
-main .wrap > div .cont .project-list li a.work-link h2 {
+main .wrap .section.pc .cont .project-list li a.work-link h2 {
   margin-left: 40px;
   line-height: 70px;
 }
-main .wrap > div .cont .project-list li a.work-link .show-wrap {
+main .wrap .section.pc .cont .project-list li a.work-link .show-wrap {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -509,12 +531,12 @@ main .wrap > div .cont .project-list li a.work-link .show-wrap {
   -webkit-clip-path: inset(50% 0% 50% 0%);
           clip-path: inset(50% 0% 50% 0%);
 }
-main .wrap > div .cont .project-list li a.work-link .show-wrap img {
+main .wrap .section.pc .cont .project-list li a.work-link .show-wrap img {
   position: absolute;
   width: 40px;
   right: 40px;
 }
-main .wrap > div .show-behind {
+main .wrap .section.pc .show-behind {
   position: absolute;
   top: 0;
   left: 0;
@@ -522,7 +544,7 @@ main .wrap > div .show-behind {
   height: 100%;
   z-index: 1;
 }
-main .wrap > div .show-behind img, main .wrap > div .show-behind video {
+main .wrap .section.pc .show-behind img, main .wrap .section.pc .show-behind video {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
@@ -531,6 +553,139 @@ main .wrap > div .show-behind img, main .wrap > div .show-behind video {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-main .wrap > div .show-behind.on img, main .wrap > div .show-behind.on video {
+main .wrap .section.pc .show-behind.on img, main .wrap .section.pc .show-behind.on video {
   opacity: 0.3;
+}
+main .wrap .mobile-sect .cont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+main .wrap .mobile-sect .cont a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  position: relative;
+  width: 100%;
+}
+main .wrap .mobile-sect .cont a .mo-img {
+  width: 100%;
+  height: 380px;
+}
+main .wrap .mobile-sect .cont a .mo-img img, main .wrap .mobile-sect .cont a .mo-img video {
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 10px;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+main .wrap .mobile-sect .cont a .mo-description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 7px;
+  color: #fff;
+  width: 100%;
+}
+main .wrap .mobile-sect .cont a .mo-description .mo-title {
+  position: relative;
+  font-size: 7vw;
+  padding-left: 25px;
+}
+main .wrap .mobile-sect .cont a .mo-description .mo-title.title1::before {
+  content: "[01]";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  font-size: 10px;
+}
+main .wrap .mobile-sect .cont a .mo-description .mo-title.title2::before {
+  content: "[02]";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  font-size: 10px;
+}
+main .wrap .mobile-sect .cont a .mo-description .mo-title.title3::before {
+  content: "[03]";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  font-size: 10px;
+}
+main .wrap .mobile-sect .cont a .mo-description .mo-title.title4::before {
+  content: "[04]";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  font-size: 10px;
+}
+main .wrap .mobile-sect .cont a .mo-description .mo-title.title5::before {
+  content: "[05]";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  font-size: 10px;
+}
+main .wrap .mobile-sect .cont a .mo-description .mo-title.title6::before {
+  content: "[06]";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  font-size: 10px;
+}
+main .wrap .mobile-sect .cont a .mo-description .des {
+  font-size: 13px;
+  padding-left: 25px;
+}
+main .wrap .mobile-sect .cont a .mo-description .hash {
+  padding-left: 25px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+}
+main .wrap .mobile-sect__footer .mo-footer__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: #fff;
+  padding: 20px;
+}
+main .wrap .mobile-sect__footer .mo-footer__inner .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 7px;
+}
+main .wrap .mobile-sect__footer .mo-footer__inner .right a {
+  text-align: right;
 }/*# sourceMappingURL=style.css.map */
