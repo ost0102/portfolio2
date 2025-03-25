@@ -1,18 +1,15 @@
 .intro-container{
     width: 100%;
-    height: 100%;
     background: #000;
     transition: .5s all ease;
-    z-index: 999;
-    position: absolute;
-    top: 0;
+    position: relative;
     height: 600vh;
-    .sticky{
-        // top: 50%;
-        // transform: translateY(-50%);
         .intro-wrap{
+            position: fixed;
+            top: 0;
+            z-index: 9;
             width: 100%;
-            height: 100vh;
+            height: 100%;
             .intro{
                 position: relative;
                 width: 100%;
@@ -40,8 +37,11 @@
             }
         }
         .intro-video{
+            width: 100%;
             height: 100%;
             opacity: 0;
+            position: fixed;
+            top: 0;
             .video-wrap{
                 height: 100%;
                 .video-btn{
@@ -83,7 +83,7 @@
                     }
                 }
                 video{
-                    transform: translateY(-50%);
+                    transform: translateY(-50%) !important;
                     top: 50%;
                     position: absolute;
                     width: 100%;
@@ -95,7 +95,7 @@
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    font-size: 14px;
+                    font-size: 2vw;
                     gap: 10px;
                     color: #fff;
                     left: 50%;
@@ -110,16 +110,15 @@
                     font-weight: 900;
                     &.label1,
                     &.label4{
-                        font-size: 25vh;
+                        font-size: 14vw;
                     }
                     &.label2,
                     &.label3{
-                        font-size: 15vh;
+                        font-size: 9vw;
                     }
                 }
             }
         }
-    }
 }
 
 main{

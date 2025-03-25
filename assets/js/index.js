@@ -404,3 +404,14 @@ document.querySelectorAll('.work-link').forEach(function(worklink) {
         }
     });
 });
+
+// gsap.to(".sticky", {
+//     opacity: 0,
+//     y: -100,
+//     scrollTrigger: {
+//         trigger: ".intro-container",
+//         start: "80% bottom",
+//         end: "100% bottom",
+//         scrub: true,
+//     }
+// });
