@@ -80,6 +80,7 @@ video.addEventListener("loadedmetadata", () => {
             start: "0% -40%", 
             end: "100% 100%", 
             scrub: true, 
+            invalidateOnRefresh: true
         }
     });
 });
