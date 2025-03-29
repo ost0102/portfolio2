@@ -58,12 +58,6 @@ document.querySelector(".intro-label.label2").addEventListener("click", () => {
                 duration: 1,
                 ease: "power2.out"  
             });
-            gsap.to('.video-btn',{
-                opacity: 1,
-                y: -50,
-                duration: 1,
-                ease: "power2.out"  
-            })
         }
     });
 });
@@ -80,7 +74,7 @@ video.addEventListener("loadedmetadata", () => {
             start: "0% -40%", 
             end: "100% 100%", 
             scrub: true, 
-            invalidateOnRefresh: true
+            anticipatePin: 1,
         }
     });
 });

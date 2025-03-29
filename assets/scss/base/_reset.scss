@@ -34,7 +34,7 @@ ul,ol,nav{list-style:none;}
 
 .__cursor {
   @include mobile{
-    display: none;
+    display: none !important;
   }
     position: fixed;
     z-index: 9999;
