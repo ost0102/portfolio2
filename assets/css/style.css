@@ -108,7 +108,7 @@ ul, ol, nav {
 }
 @media (max-width: 768px) {
   .__cursor {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -430,6 +430,40 @@ footer .right {
 .intro-container .intro-video .video-wrap .video-label.label2, .intro-container .intro-video .video-wrap .video-label.label3 {
   font-size: 9vw;
 }
+.intro-container .intro-video .video-wrap.mo .mo-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+.intro-container .intro-video .video-wrap.mo .mo-img svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  opacity: 0;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+.intro-container .intro-video .video-wrap.mo .mo-label {
+  opacity: 0;
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  font-size: 10vw;
+  font-family: "Kanit";
+}
 
 main {
   position: fixed;
@@ -459,7 +493,6 @@ main .wrap .section.pc .cont {
   color: #fff;
   font-size: 18px;
   font-weight: 900;
-  text-transform: uppercase;
   position: relative;
   z-index: 2;
 }
@@ -588,7 +621,7 @@ main .wrap .mobile-sect .cont a {
 }
 main .wrap .mobile-sect .cont a .mo-img {
   width: 100%;
-  height: 380px;
+  height: 200px;
 }
 main .wrap .mobile-sect .cont a .mo-img img, main .wrap .mobile-sect .cont a .mo-img video {
   width: 100%;
@@ -652,6 +685,34 @@ main .wrap .mobile-sect .cont a .mo-description .mo-title.title5::before {
 }
 main .wrap .mobile-sect .cont a .mo-description .mo-title.title6::before {
   content: "[06]";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  font-size: 10px;
+}
+main .wrap .mobile-sect .cont a .mo-description .mo-title.title7::before {
+  content: "[07]";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  font-size: 10px;
+}
+main .wrap .mobile-sect .cont a .mo-description .mo-title.title8::before {
+  content: "[08]";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  font-size: 10px;
+}
+main .wrap .mobile-sect .cont a .mo-description .mo-title.title9::before {
+  content: "[09]";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  font-size: 10px;
+}
+main .wrap .mobile-sect .cont a .mo-description .mo-title.title10::before {
+  content: "[10]";
   position: absolute;
   top: -10px;
   left: 0;

@@ -58,6 +58,16 @@ document.querySelector(".intro-label.label2").addEventListener("click", () => {
                 duration: 1,
                 ease: "power2.out"  
             });
+            gsap.to('.mo-img svg:nth-child(1)',{
+                opacity:1,
+                duration:2,
+                ease: "power2.out",
+            }, '0')
+            gsap.to('.mo-label.label1',{
+                opacity:1,
+                duration:2,
+                ease: "power2.out"
+            }, '0')
         }
     });
 });
@@ -78,8 +88,84 @@ video.addEventListener("loadedmetadata", () => {
         }
     });
 });
-
-
+let m_scrollTl1 = gsap.timeline({
+    scrollTrigger:{
+        trigger: '.intro-container',
+        start: "4% 0%",
+        end: "15% 15%",
+        ease: "power2.out",
+        scrub: true,
+    }
+})
+m_scrollTl1
+    .to('.mo-img svg:nth-child(1)',{opacity:0}, '0')
+    .to('.mo-img svg:nth-child(2)',{opacity:1}, '0')
+    .to('.mo-label.label1', {opacity:0}, '0')
+    .to('.mo-label.label2', {opacity:1}, '0')
+let m_scrollTl2 = gsap.timeline({
+    scrollTrigger:{
+        trigger: '.intro-container',
+        start: "19% 19%",
+        end: "30% 30%",
+        ease: "power2.out",
+        scrub: true,
+    }
+})
+m_scrollTl2
+    .to('.mo-img svg:nth-child(2)',{opacity:0}, '0')
+    .to('.mo-img svg:nth-child(3)',{opacity:1}, '0')
+let m_scrollTl3 = gsap.timeline({
+    scrollTrigger:{
+        trigger: '.intro-container',
+        start: "34% 34%",
+        end: "45% 45%",
+        ease: "power2.out",
+        scrub: true,
+    }
+})
+m_scrollTl3
+    .to('.mo-img svg:nth-child(3)',{opacity:0}, '0')
+    .to('.mo-img svg:nth-child(4)',{opacity:1}, '0')
+let m_scrollTl4 = gsap.timeline({
+    scrollTrigger:{
+        trigger: '.intro-container',
+        start: "49% 49%",
+        end: "60% 60%",
+        ease: "power2.out",
+        scrub: true,
+    }
+})
+m_scrollTl4
+    .to('.mo-img svg:nth-child(4)',{opacity:0}, '0')
+    .to('.mo-img svg:nth-child(5)',{opacity:1}, '0')
+    .to('.mo-label.label2', {opacity:0}, '0')
+    .to('.mo-label.label3', {opacity:1}, '0')
+let m_scrollTl5 = gsap.timeline({
+    scrollTrigger:{
+        trigger: '.intro-container',
+        start: "64% 64%",
+        end: "75% 75%",
+        ease: "power2.out",
+        scrub: true,
+    }
+})
+m_scrollTl5
+    .to('.mo-img svg:nth-child(5)',{opacity:0}, '0')
+    .to('.mo-img svg:nth-child(6)',{opacity:1}, '0')
+let m_scrollTl6 = gsap.timeline({
+    scrollTrigger:{
+        trigger: '.intro-container',
+        start: "80% 80%",
+        end: "98% 98%",
+        ease: "power2.out",
+        scrub: true,
+    }
+})
+m_scrollTl6
+    .to('.mo-img svg:nth-child(6)',{opacity:0}, '0')
+    .to('.mo-img svg:nth-child(7)',{opacity:1, scale:2}, '0')
+    .to('.mo-label.label3', {opacity:0}, '0')
+    .to('.mo-label.label4', {opacity:1, scale:2}, '0')
 
 let scrollTl = gsap.timeline({
     scrollTrigger:{
