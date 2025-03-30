@@ -464,6 +464,13 @@ footer .right {
   font-size: 10vw;
   font-family: "Kanit";
 }
+.intro-container .intro-video .video-wrap.mo .mo-label.label4 {
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  bottom: unset;
+  top: 50%;
+  left: 50%;
+}
 
 main {
   position: fixed;

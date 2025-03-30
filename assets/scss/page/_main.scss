@@ -143,6 +143,12 @@
                     font-size: 10vw;
                     font-family: 'Kanit';
                 }
+                .mo-label.label4{
+                    transform: translate(-50%, -50%);
+                    bottom: unset;
+                    top: 50%;
+                    left: 50%;
+                }
             }
         }
 }
