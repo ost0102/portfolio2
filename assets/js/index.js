@@ -342,58 +342,18 @@ gsap.from(videochars3, {
 });
 
 
-let videoSplit4 = new SplitType(".video-label.label4", { types: "chars", tagName: "span" });
-videochars4 = videoSplit4.chars;
 
-gsap.from(videochars4, {
-    opacity: 0,  
-    rotationX: 100,  
-    stagger: 0.1,  
-    ease: 'back',  
-    duration: 1.5,   
+let videoSplit4 = gsap.timeline({ 
     scrollTrigger: {
         trigger: '.intro-container',
         start: "70% 0%",
         end: "95% 95%",
-        onEnter: () => {
-            gsap.to(videochars4, {
-                opacity: 1,    
-                rotationX: 0,  
-                stagger: 0.1,   
-                ease: 'back',   
-                duration: 1.5    
-            });
-        },
-        onLeave: () => {
-            gsap.to(videochars4, {
-                opacity: 0,    
-                rotationX: 100,
-                stagger: 0.1, 
-                ease: 'back',  
-                duration: 1.5  
-            });
-        },
-        onEnterBack: () => {
-            gsap.to(videochars4, {
-                opacity: 1,     
-                rotationX: 0,   
-                stagger: 0.1,  
-                ease: 'back', 
-                duration: 1.5    
-            });
-        },
-        onLeaveBack: () => {
-            gsap.to(videochars4, {
-                opacity: 0,     
-                rotationX: 100,
-                stagger: 0.1,   
-                ease: 'back',   
-                duration: 1.5   
-            });
-        }
+        scrub: true,
+        duration:3,
     }
 });
-
+videoSplit4
+    .to('.video-label.label4', {opacity:1, scale:5})
 
 let videoTl = gsap.timeline({
     scrollTrigger: {

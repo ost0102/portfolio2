@@ -430,6 +430,15 @@ footer .right {
 .intro-container .intro-video .video-wrap .video-label.label2, .intro-container .intro-video .video-wrap .video-label.label3 {
   font-size: 9vw;
 }
+.intro-container .intro-video .video-wrap .video-label.label4 {
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-align: center;
+}
 .intro-container .intro-video .video-wrap.mo .mo-img {
   display: -webkit-box;
   display: -ms-flexbox;
